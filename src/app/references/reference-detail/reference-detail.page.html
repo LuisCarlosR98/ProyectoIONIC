@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot = "start">
+      <ion-back-button defaultHref = "/references"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="reference !== undefine">{{reference.title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="editReference()">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="deleteReference()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="reference !== undefine">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">{{reference.title}}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text>Id: {{reference.id}}</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text>Titulo: {{reference.title}}</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text>Autores: <ion-text *ngFor="let author of authorsCol">{{author}} - </ion-text></ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text>Tipo: <ion-text *ngIf="reference.type === 1">Articulo de revista</ion-text>
+        <ion-text *ngIf="reference.type === 2">Articulo en evento</ion-text>
+        <ion-text *ngIf="reference.type === 3">Otro</ion-text>
+      </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text><ion-text *ngIf="reference.type === 1">Revista</ion-text>
+                  <ion-text *ngIf="reference.type === 2">Evento</ion-text>: 
+                  <ion-text>{{reference.journal}}</ion-text></ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text >doi: {{reference.doi}}</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text >Año: {{reference.year}}</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

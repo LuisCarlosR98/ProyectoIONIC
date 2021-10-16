@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot = "start">
+      <ion-back-button defaultHref = "/references"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agregar nueva referencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-input type="text" placeholder="Escribe el titulo" #title></ion-input>
+          <ion-input type="text" placeholder="Autor 1, Autor2 ..." #author></ion-input>
+          <ion-input type="number" placeholder="Tipo de publicación" #type></ion-input>
+          <ion-input type="text" placeholder="Revista o evento" #journal></ion-input>
+          <ion-input type="text" placeholder="doi" #doi></ion-input>
+          <ion-input type="text" placeholder="Año de publicacion" #year></ion-input>
+          <ion-button color="primary" (click)="saveNewReference(title,author,type,journal,doi,year)"> 
+            Guardar
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

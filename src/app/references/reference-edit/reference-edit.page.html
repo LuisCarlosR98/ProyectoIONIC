@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot = "start">
+      <ion-back-button defaultHref = "/references"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar referencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="reference !== undefine">
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-input type="text" placeholder="Escribe el titulo" [(ngModel)]="ngTitle" #title></ion-input>
+          <ion-input type="text" placeholder="Autor 1, Autor2 ..." [(ngModel)]="ngAuthor" #author></ion-input>
+          <ion-input type="number" placeholder="Tipo de publicación" [(ngModel)]="ngType" #type></ion-input>
+          <ion-input type="text" placeholder="Revista o evento" [(ngModel)]="ngJournal" #journal></ion-input>
+          <ion-input type="text" placeholder="doi" [(ngModel)]="ngDoi" #doi></ion-input>
+          <ion-input type="text" placeholder="Año de publicacion" [(ngModel)]="ngYear" #year></ion-input>
+          <ion-button color="primary" (click)="editReference(title,author,type,journal,doi,year)"> 
+            Guardar
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
